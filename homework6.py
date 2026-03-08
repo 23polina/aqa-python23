@@ -21,13 +21,13 @@ line4 = "       Long string        "
 left_result_2 = line4.lstrip()
 print(left_result_2.rstrip())
 
-# Task 5 - Имена собственные всегда начинаются с заглавной буквы, за которой следуют строчные буквы.
-#  Исправьте данное имя собственное так, чтобы оно соответствовало этому утверждению. "pARiS" >> "Paris"
+# Task 5 - Исправьте данное имя - "pARiS" >> "Paris"
 name = 'pARiS'
 print(name.capitalize())
 
 # Task 6 - Перевести строку в список "Robin Singh" => ["Robin”, “Singh"],
-# "I love arrays they are my favorite" => ["I", "love", "arrays", "they", "are", "my", "favorite"]
+# "I love arrays they are my favorite" => [
+# "I", "love", "arrays", "they", "are", "my", "favorite"]
 line5 = "Robin Singh"
 converted_string = line5.split()
 print(converted_string)
@@ -50,7 +50,9 @@ my_list2 = ["I", "love", "arrays", "they", "are", "my", "favorite"]
 list_into_str2 = " ".join(my_list2)
 print(list_into_str2)
 
-# Task 9 - Создайте список из 10 элементов, вставьте на 3-ю позицию новое значение, удалите элемент из списка под индексом 6
-my_array = ["apple", "orange", "cat", "dog", "travelling", "QA", "gym", "health", "IT", "aviation"]
-my_array.insert(3, "cat23")
-print(my_array.insert(3, "cat23"))
+# Task 9 - Создайте список из 10 элементов, вставьте на 3-ю позицию новое значение,
+# удалите элемент из списка под индексом 6
+my_array = ["apple", "orange", "cat", "dog", "traveling", "QA", "gym", "health", "IT", "aviation"]
+my_array.insert(2, "cat23")
+del my_array[5]
+print(my_array)
