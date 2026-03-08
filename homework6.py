@@ -13,58 +13,62 @@ Task 8 - Дан список ["I", "love", "arrays", "they", "are", "my", "favor
 Task 9 - Создайте список из 10 элементов, вставьте на 3-ю позицию новое значение,
 удалите элемент из списка под индексом 6
 """
+def main():
 
 # Task 1
-line1 = 'www.my_site.com#about'
-print(line1.replace("#", "/"))
+    line1 = 'www.my_site.com#about'
+    print(line1.replace("#", "/"))
 
 # Task 2
-word = 'apple'
-value = 'ing'
-print(word + value)
+    word = 'apple'
+    value = 'ing'
+    print(word + value)
 
 # Task 3
-line2 = 'Ivanou Ivan'
-l2 = line2.split()
-switched_line = " ".join(l2[:: -1])
-print(switched_line)
+    line2 = 'Ivanou Ivan'
+    l2 = line2.split()
+    switched_line = " ".join(l2[:: -1])
+    print(switched_line)
 
 # Task 4
-line3 = input("Enter a string ")
-left_result = line3.lstrip()
-print(left_result.rstrip())
+    line3 = input("Enter a string ")
+    left_result = line3.lstrip()
+    print(left_result.rstrip())
 
-line4 = "       Long string        "
-left_result_2 = line4.lstrip()
-print(left_result_2.rstrip())
+    line4 = "       Long string        "
+    left_result_2 = line4.lstrip()
+    print(left_result_2.rstrip())
 
 # Task 5
-name = 'pARiS'
-print(name.capitalize())
+    name = 'pARiS'
+    print(name.capitalize())
 
 # Task 6
-line5 = "Robin Singh"
-converted_string = line5.split()
-print(converted_string)
+    line5 = "Robin Singh"
+    converted_string = line5.split()
+    print(converted_string)
 
-line6 = "I love arrays they are my favorite"
-converted_string2 = line6.split()
-print(converted_string2)
+    line6 = "I love arrays they are my favorite"
+    converted_string2 = line6.split()
+    print(converted_string2)
 
 # Task 7
-my_list = ['Robin Singh']
-list_into_str = " ".join(my_list)
-str_1 = 'Welcome'
-str_2 = "airport"
-print(f"Hello, {list_into_str}! {str_1} to {str_2}")
+    my_list = ['Robin Singh']
+    list_into_str = " ".join(my_list)
+    str_1 = 'Welcome'
+    str_2 = "airport"
+    print(f"Hello, {list_into_str}! {str_1} to {str_2}")
 
 # Task 8
-my_list2 = ["I", "love", "arrays", "they", "are", "my", "favorite"]
-list_into_str2 = " ".join(my_list2)
-print(list_into_str2)
+    my_list2 = ["I", "love", "arrays", "they", "are", "my", "favorite"]
+    list_into_str2 = " ".join(my_list2)
+    print(list_into_str2)
 
 # Task 9
-my_array = ["apple", "orange", "cat", "dog", "traveling", "QA", "gym", "health", "IT", "aviation"]
-my_array.insert(2, "cat23")
-del my_array[5]
-print(my_array)
+    my_array = ["apple", "orange", "cat", "dog", "traveling", "QA", "gym", "health", "IT", "aviation"]
+    my_array.insert(2, "cat23")
+    del my_array[5]
+    print(my_array)
+
+if __name__ == '__main__':
+    main()
