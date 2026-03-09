@@ -13,8 +13,9 @@ Task 8 - Дан список ["I", "love", "arrays", "they", "are", "my", "favor
 Task 9 - Создайте список из 10 элементов, вставьте на 3-ю позицию новое значение,
 удалите элемент из списка под индексом 6
 """
-def main():
 
+
+def main():
 
     # Task 1
     line1 = 'www.my_site.com#about'
@@ -66,3 +67,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
