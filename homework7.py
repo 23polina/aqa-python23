@@ -12,6 +12,7 @@ Task 3: TimeConvert
 если часы меньше 10 - не пишите '0' перед ними.
 """
 
+
 def main():
     # Task 1 Time
     time_after = int(input("enter amount of minutes "))
@@ -21,8 +22,8 @@ def main():
     new_h = (total_minutes // 60) % 24
     new_m = total_minutes % 60
     time_str = f"{new_h:02d}{new_m:02d}"
-    result = sum(int(amount) for amount in time_str)
-    print(result)
+    # results = sum(int(amount) for amount in time_str) - due to "too many variables"
+    print(sum(int(amount) for amount in time_str))
 
     # Task 2 LevelUP
     experience = int(input("Enter experience value "))
