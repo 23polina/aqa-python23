@@ -37,8 +37,8 @@ def check_number(number):
 
 print(check_number(5))
 
-
 print(check_number(-5))
+
 
 # Task 2:
 def number_check(func):
