@@ -38,15 +38,14 @@ def check_number(number):
 print(check_number(5))
 
 
-# print(check_number(-5))
+print(check_number(-5))
 
 # Task 2:
 def number_check(func):
     def wrapper(value):
         result = func(value)
         if not isinstance(result, (int, float)):
-            print(f"Functional result '{result}' isn't number")
-            return None
+            raise ValueError("Functional result isn't number")
         print(result)
         return result
 
@@ -93,19 +92,18 @@ def add_1(a, b):
     return a + b
 
 
-print(add("5", 6))
+print(add_1("5", 6))
 
 
 # Task 4:
 def cache(func):
     cached_values = {}
 
-    def wrapper(*args):
-        key = args
+    def wrapper(key):
         if key in cached_values:
             return cached_values[key]
             # print(cached_values)
-        results = func(*args)
+        results = func(key)
         cached_values[key] = results
         # print(cached_values)
         return results
