@@ -49,8 +49,7 @@ while user_answer == 'Yes':
     selected_cards = get_card(cards_desk)
     print(f"Your card is {selected_cards.return_cards()}")
     user_answer = input("Do you want to play? Choose Yes or No ")
-else:
-    print("See you next time")
+print("See you next time")
 
 
 # Task 2:
@@ -62,12 +61,16 @@ class CurrencyConverter:
         self.usd_to_byn = usd_to_byn
 
 
-today_currency = CurrencyConverter(eur_to_usd=1.16, usd_to_eur=0.8652, eur_to_byn=3.39, usd_to_byn=2.94)
+today_currency = CurrencyConverter(
+    eur_to_usd=1.16,
+    usd_to_eur=0.8652,
+    eur_to_byn=3.39,
+    usd_to_byn=2.94)
 
-amount_currency_to_exchange = input("Enter the amount and currency with space you would like to exchange ")
+amount_currency_to_exchange = input("Enter the amount and currency you would like to exchange ")
 amount_str, currency = amount_currency_to_exchange.split()
 amount = float(amount_str)
-currency_to_which_exchange = input("Specify to which currency you would like to exchange: EUR, USD or BYN ")
+currency_to_which_exchange = input("Specify currency you would like to exchange to: EUR, USD or BYN ")
 
 
 # It was the first version:
