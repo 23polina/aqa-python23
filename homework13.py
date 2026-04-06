@@ -70,7 +70,7 @@ today_currency = CurrencyConverter(
 amount_currency_to_exchange = input("Enter the amount and currency you would like to exchange ")
 amount_str, currency = amount_currency_to_exchange.split()
 amount = float(amount_str)
-currency_to_which_exchange = input("Specify currency you would like to exchange to: EUR, USD or BYN ")
+currency_to_which_exchange = input("Set currency you would like to exchange to: EUR, USD or BYN ")
 
 
 # It was the first version:
