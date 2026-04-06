@@ -38,9 +38,9 @@ def cards_desk_creation():
 cards_desk = cards_desk_creation()
 
 
-def get_card(cards_desk):
-    card_choose = random.choice(cards_desk)
-    cards_desk.remove(card_choose)
+def get_card(desk):
+    card_choose = random.choice(desk)
+    desk.remove(card_choose)
     return card_choose
 
 
@@ -55,21 +55,20 @@ else:
 
 # Task 2:
 class CurrencyConverter:
-    def __init__(self, EURtoUSD, USDtoEUR, EURtoBYN, USDtoBYN):
-        self.EURtoUSD = EURtoUSD
-        self.USDtoEUR = USDtoEUR
-        self.EURtoBYN = EURtoBYN
-        self.USDtoBYN = USDtoBYN
+    def __init__(self, eur_to_usd, usd_to_eur, eur_to_byn, usd_to_byn):
+        self.eur_to_usd = eur_to_usd
+        self.usd_to_eur = usd_to_eur
+        self.eur_to_byn = eur_to_byn
+        self.usd_to_byn = usd_to_byn
 
 
-today_currency = CurrencyConverter(EURtoUSD=1.16, USDtoEUR=0.8652, EURtoBYN=3.39, USDtoBYN=2.94)
+today_currency = CurrencyConverter(eur_to_usd=1.16, usd_to_eur=0.8652, eur_to_byn=3.39, usd_to_byn=2.94)
 
 amount_currency_to_exchange = input("Enter the amount and currency with space you would like to exchange ")
 amount_str, currency = amount_currency_to_exchange.split()
 amount = float(amount_str)
 currency_to_which_exchange = input("Specify to which currency you would like to exchange: EUR, USD or BYN ")
 
-exchanged_amount = 0
 
 # It was the first version:
 # def currency_exchange(amount, currency, currency_to_which_exchange):
@@ -93,19 +92,20 @@ exchanged_amount = 0
 #
 # print(currency_exchange(amount, currency, currency_to_which_exchange))
 #
-def currency_exchange(amount, currency, currency_to_which_exchange):
+def currency_exchange(amt, cur, currency_exch):
     rates = {
-        ('USD', 'EUR'): today_currency.USDtoEUR,
-        ('EUR', 'USD'): today_currency.EURtoUSD,
-        ('USD', 'BYN'): today_currency.USDtoBYN,
-        ('EUR', 'BYN'): today_currency.EURtoBYN
+        ('USD', 'EUR'): today_currency.usd_to_eur,
+        ('EUR', 'USD'): today_currency.eur_to_usd,
+        ('USD', 'BYN'): today_currency.usd_to_byn,
+        ('EUR', 'BYN'): today_currency.eur_to_byn
     }
-    if not currency_to_which_exchange:
-        currency_to_which_exchange = 'BYN'
-    key = (currency, currency_to_which_exchange)
+
+    if not currency_exch:
+        currency_exch = 'BYN'
+    key = (cur, currency_exch)
     if key in rates:
-        exchanged_amount = amount * rates[key]
-        return f"Your exchanged_amount is {exchanged_amount} {currency_to_which_exchange}"
+        exchanged_amount = amt * rates[key]
+        return f"Your exchanged_amount is {exchanged_amount} {currency_exch}"
     else:
         return "Invalid currency selection"
 
