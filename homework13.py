@@ -24,31 +24,33 @@ class Card:
     def return_cards(self):
         return f"{self.number} {self.mast}"
 
+class CardDeck:
+    def __init__(self):
+        self.cards = self.create_deck()
 
-def cards_desk_creation():
-    cards = []
-    for mast in Card.mast_list:
-        for number in Card.number_list:
-            cards.append(Card(number, mast))
-    cards.append(Card("Jocker1", None))
-    cards.append(Card("Jocker2", None))
-    return cards
+    def create_deck(self):
+        cards = []
+        for mast in Card.mast_list:
+            for number in Card.number_list:
+                cards.append(Card(number, mast))
+        cards.append(Card("Jocker1", None))
+        cards.append(Card("Jocker2", None))
+        return cards
+
+    def get_card(self):
+        card_choose = random.choice(self.cards)
+        self.cards.remove(card_choose)
+        return card_choose
 
 
-cards_desk = cards_desk_creation()
-
-
-def get_card(desk):
-    card_choose = random.choice(desk)
-    desk.remove(card_choose)
-    return card_choose
-
+deck = CardDeck()
 
 user_answer = input("Do you want to play? Choose Yes or No ")
 while user_answer == 'Yes':
-    selected_cards = get_card(cards_desk)
-    print(f"Your card is {selected_cards.return_cards()}")
+    selected_card = deck.get_card()
+    print(f"Your card is {selected_card.return_cards()}")
     user_answer = input("Do you want to play? Choose Yes or No ")
+
 print("See you next time")
 
 
@@ -73,27 +75,6 @@ amount = float(amount_str)
 currency_to_which_exchange = input("Set currency you would like to exchange to: EUR, USD or BYN ")
 
 
-# It was the first version:
-# def currency_exchange(amount, currency, currency_to_which_exchange):
-#     if not currency_to_which_exchange:
-#         currency_to_which_exchange = 'BYN'
-#     if currency == 'USD' and currency_to_which_exchange == 'EUR':
-#         exchanged_amount = amount * today_currency.USDtoEUR
-#         return f"Your amount is {exchanged_amount} EUR"
-#     elif currency == 'EUR' and currency_to_which_exchange == 'USD':
-#         exchanged_amount = amount * today_currency.EURtoUSD
-#         return f"Your amount is {exchanged_amount} USD"
-#     elif currency == 'USD' and currency_to_which_exchange == 'BYN':
-#         exchanged_amount = amount * today_currency.USDtoBYN
-#         return f"Your amount is {exchanged_amount} BYN"
-#     elif currency == 'EUR' and currency_to_which_exchange == 'BYN':
-#         exchanged_amount = amount * today_currency.EURtoBYN
-#         return f"Your amount is {exchanged_amount} BYN"
-#     else:
-#         return "Invalid currency selection"
-#
-#
-# print(currency_exchange(amount, currency, currency_to_which_exchange))
 #
 def currency_exchange(amt, cur, currency_exch):
     rates = {
