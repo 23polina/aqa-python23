@@ -24,6 +24,7 @@ class Card:
     def return_cards(self):
         return f"{self.number} {self.mast}"
 
+
 class CardDeck:
     def __init__(self):
         self.cards = self.create_deck()
@@ -62,6 +63,22 @@ class CurrencyConverter:
         self.eur_to_byn = eur_to_byn
         self.usd_to_byn = usd_to_byn
 
+    def currency_exchange(self, amt, cur, currency_exch):
+        rates = {
+            ('USD', 'EUR'): today_currency.usd_to_eur,
+            ('EUR', 'USD'): today_currency.eur_to_usd,
+            ('USD', 'BYN'): today_currency.usd_to_byn,
+            ('EUR', 'BYN'): today_currency.eur_to_byn
+        }
+        if not currency_exch:
+            currency_exch = 'BYN'
+        key = (cur, currency_exch)
+        if key in rates:
+            exchanged_amount = amt * rates[key]
+            return f"Your exchanged_amount is {exchanged_amount} {currency_exch}"
+        else:
+            return "Invalid currency selection"
+
 
 today_currency = CurrencyConverter(
     eur_to_usd=1.16,
@@ -74,24 +91,4 @@ amount_str, currency = amount_currency_to_exchange.split()
 amount = float(amount_str)
 currency_to_which_exchange = input("Set currency you would like to exchange to: EUR, USD or BYN ")
 
-
-#
-def currency_exchange(amt, cur, currency_exch):
-    rates = {
-        ('USD', 'EUR'): today_currency.usd_to_eur,
-        ('EUR', 'USD'): today_currency.eur_to_usd,
-        ('USD', 'BYN'): today_currency.usd_to_byn,
-        ('EUR', 'BYN'): today_currency.eur_to_byn
-    }
-
-    if not currency_exch:
-        currency_exch = 'BYN'
-    key = (cur, currency_exch)
-    if key in rates:
-        exchanged_amount = amt * rates[key]
-        return f"Your exchanged_amount is {exchanged_amount} {currency_exch}"
-    else:
-        return "Invalid currency selection"
-
-
-print(currency_exchange(amount, currency, currency_to_which_exchange))
+print(today_currency.currency_exchange(amount, currency, currency_to_which_exchange))
