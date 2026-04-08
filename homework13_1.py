@@ -40,9 +40,7 @@ class CardDeck:
     def get_card_by_index(self, index):
         if index < 0 or index >= len(self.cards):
             return None
-        card_choose = self.cards[index]
-        del self.cards[index]
-        return card_choose
+        return self.cards.pop(index)
 
 
 desk = CardDeck()
