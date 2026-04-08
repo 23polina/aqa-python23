@@ -27,32 +27,40 @@ class Card:
 
 class CardDeck:
     def __init__(self):
-        self.cards = self.create_deck()
+        self.cards = self.create_desk()
 
-    def create_deck(self):
+    def create_desk(self):
         cards = []
         for mast in Card.mast_list:
             for number in Card.number_list:
                 cards.append(Card(number, mast))
-        cards.append(Card("Jocker1", None))
-        cards.append(Card("Jocker2", None))
+        cards.append(Card("Jocker1", "Black"))
+        cards.append(Card("Jocker2", "Red"))
         return cards
 
-    def get_card(self):
-        card_choose = random.choice(self.cards)
-        self.cards.remove(card_choose)
+    def shuffle_desk(self):
+        random.shuffle(self.cards)
+
+    def get_card_by_index(self, index):
+        if index < 0 or index >= len(self.cards):
+            return None
+        card_choose = self.cards[index]
+        del self.cards[index]
         return card_choose
 
 
-deck = CardDeck()
+desk = CardDeck()
+desk.shuffle_desk()
 
-user_answer = input("Do you want to play? Choose Yes or No ")
-while user_answer == 'Yes':
-    selected_card = deck.get_card()
-    print(f"Your card is {selected_card.return_cards()}")
-    user_answer = input("Do you want to play? Choose Yes or No ")
+card_number = int(input('Choose card from 54 cards desk : '))
+card = desk.get_card_by_index(card_number)
+print(f'You card is: {card.return_cards()}')
+print(len(desk.cards))
 
-print("See you next time")
+card_number = int(input('Choose card from 54 cards desk : '))
+card = desk.get_card_by_index(card_number)
+print(f'You card is: {card.return_cards()}')
+print(len(desk.cards))
 
 
 # Task 2:
