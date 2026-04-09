@@ -16,7 +16,7 @@ FILE_NAME = "students.txt"
 
 def create_and_write_file():
     if not os.path.exists(FILE_NAME):
-        with open(FILE_NAME, "w") as file:
+        with open(FILE_NAME, "w", encoding="utf-8") as file:
             students = [
                 "Ivanov I.I;Group# 101;1, 10, 8",
                 "Petrov I.I;Group# 101;7, 2, 8",
@@ -30,7 +30,7 @@ def create_and_write_file():
 
 def read_file():
     try:
-        with open(FILE_NAME, "r") as file:
+        with open(FILE_NAME, "r", encoding="utf-8") as file:
             return file.readlines()
     except FileNotFoundError:
         print("File Not Found")
@@ -70,7 +70,7 @@ def calculate_averages(groups):
 
 def append_results(total_students, groups, averages):
     try:
-        with open(FILE_NAME, "a") as file:
+        with open(FILE_NAME, "a", encoding="utf-8") as file:
             file.write(f"Total Student amount is: {total_students}\n")
 
             for group in groups:

@@ -18,11 +18,13 @@ Task 3: Time
 Выведите соответствующее сообщение на экран.
 """
 import re
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
 
 # Task 2.1
 def found_value():
-    with open('text_file_for_hw14.txt') as file:
+    with open('text_file_for_hw14.txt', encoding="utf-8") as file:
         value = file.read()
         found_values = re.findall(r"\d{2}\.\d{2}\.\d{4}", value)
         print(found_values)
@@ -45,9 +47,6 @@ def check_password(password=user_password):
 check_password()
 
 # Task 3.1
-from datetime import datetime
-from dateutil.relativedelta import relativedelta
-
 first_date = input("Enter first date in YYYY-MM-DD format ")
 second_date = input("Enter second date in YYYY-MM-DD format ")
 formatted_first_date = datetime.strptime(first_date, "%Y-%m-%d")
