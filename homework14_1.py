@@ -54,6 +54,7 @@ def process_data(lines):
         groups[group]["count"] += 1
         groups[group]["grades_sum"] += sum(grades)
         groups[group]["grades_count"] += len(grades)
+        print(f"Processing student: {name}")
     return total_students, groups
 
 
