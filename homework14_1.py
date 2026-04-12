@@ -56,7 +56,6 @@ def process_data(lines):
         groups[group]["count"] += 1
         groups[group]["grades_sum"] += sum(grades)
         groups[group]["grades_count"] += len(grades)
-        logging.info(f"Processing student: {name}")
     return total_students, groups
 
 
@@ -85,7 +84,7 @@ def append_results(total_students, groups, averages):
 
         logging.info("Data has been added into the file")
     except IOError as e:
-        logging.warning(f"Error during adding datat into the file: {e}")
+        logging.warning(f"Error during adding datat into the file")
 
 
 def main():

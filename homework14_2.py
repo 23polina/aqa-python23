@@ -18,9 +18,9 @@ Task 3: Time
 Выведите соответствующее сообщение на экран.
 """
 import re
+import logging
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-import logging
 
 logging.basicConfig(level=logging.INFO)
 
