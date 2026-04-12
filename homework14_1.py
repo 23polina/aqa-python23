@@ -83,8 +83,8 @@ def append_results(total_students, groups, averages):
                 )
 
         logging.info("Data has been added into the file")
-    except IOError as e:
-        logging.warning(f"Error during adding datat into the file")
+    except IOError:
+        logging.warning("Error during adding datat into the file")
 
 
 def main():
