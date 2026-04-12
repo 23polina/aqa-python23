@@ -44,7 +44,7 @@ def process_data(lines):
     groups = {}
 
     for line in lines:
-        name, group, grades_str = line.strip().split(";")
+        _name, group, grades_str = line.strip().split(";")
         grades = list(map(int, grades_str.split(",")))
         total_students += 1
         if group not in groups:
