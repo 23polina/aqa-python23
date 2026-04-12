@@ -10,6 +10,8 @@ Task 1: Files
 Допишите эту информацию в конец файла
 """
 import os
+import logging
+logging.basicConfig(level=logging.INFO)
 
 FILE_NAME = "students.txt"
 
@@ -25,7 +27,7 @@ def create_and_write_file():
             ]
             for student in students:
                 file.write(student + "\n")
-        print("File was created")
+        logging.info("File was created")
 
 
 def read_file():
@@ -33,7 +35,7 @@ def read_file():
         with open(FILE_NAME, "r", encoding="utf-8") as file:
             return file.readlines()
     except FileNotFoundError:
-        print("File Not Found")
+        logging.warning("File Not Found")
         return []
 
 
@@ -54,7 +56,7 @@ def process_data(lines):
         groups[group]["count"] += 1
         groups[group]["grades_sum"] += sum(grades)
         groups[group]["grades_count"] += len(grades)
-        print(f"Processing student: {name}")
+        logging.info(f"Processing student: {name}")
     return total_students, groups
 
 
@@ -81,9 +83,9 @@ def append_results(total_students, groups, averages):
                     f"Average mark is {averages[group]}\n"
                 )
 
-        print("Data has been added into the file")
+        logging.info("Data has been added into the file")
     except IOError as e:
-        print(f"Error during adding datat into the file: {e}")
+        logging.warning(f"Error during adding datat into the file: {e}")
 
 
 def main():
