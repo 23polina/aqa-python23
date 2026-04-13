@@ -30,7 +30,7 @@ def found_value():
     with open('text_file_for_hw14.txt', encoding="utf-8") as file:
         value = file.read()
         found_values = re.findall(r"\d{2}\.\d{2}\.\d{4}", value)
-        logging.info(f"Value found {found_values}")
+        logging.info("Value found %s", found_values)
 
 
 found_value()
@@ -61,7 +61,7 @@ def count_days_amount(first=first_date, second=second_date):
         formatted_first_date, formatted_second_date = formatted_second_date, formatted_first_date
     relativedelta(formatted_second_date, formatted_first_date)
     days_amount = (formatted_second_date - formatted_first_date).days
-    logging.info(f"{days_amount}")
+    logging.info("Your days amount %s", days_amount)
 
 
 count_days_amount()
