@@ -30,8 +30,7 @@ def found_value():
     with open('text_file_for_hw14.txt', encoding="utf-8") as file:
         value = file.read()
         found_values = re.findall(r"\d{2}\.\d{2}\.\d{4}", value)
-        logging.info("Value found")
-        print(found_values)
+        logging.info(f"Value found {found_values}")
 
 
 found_value()
@@ -44,10 +43,8 @@ def check_password(password=user_password):
     pattern = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$"
     if re.fullmatch(pattern, password):
         logging.info("Password validation passed")
-        print("Your password is correct")
     else:
         logging.warning("Password validation failed")
-        print("Your password isn't according to standards")
 
 
 check_password()
@@ -64,7 +61,7 @@ def count_days_amount(first=first_date, second=second_date):
         formatted_first_date, formatted_second_date = formatted_second_date, formatted_first_date
     relativedelta(formatted_second_date, formatted_first_date)
     days_amount = (formatted_second_date - formatted_first_date).days
-    print(days_amount)
+    logging.info(f"{days_amount}")
 
 
 count_days_amount()
@@ -77,14 +74,11 @@ def check_placement_of_date(date=user_input):
     date = datetime.strptime(user_input, "%Y-%m-%d")
     today = datetime.today()
     if date.date() > today.date():
-        logging.info("Date validation passed")
-        print("Your date in the future")
+        logging.info("Your date in the future")
     elif date.date() < today.date():
-        logging.info("Date validation passed")
-        print("Your date in the past")
+        logging.info("Your date in the passed")
     else:
-        logging.info("Date validation passed")
-        print("You entered today's date")
+        logging.info("You entered today's date")
 
 
 check_placement_of_date()
