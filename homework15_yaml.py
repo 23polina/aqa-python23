@@ -18,7 +18,7 @@ def add_new_book(data=books_data):
         {"title": "Title", "author": "Author", "year": 2024}
     ]
 
-    data['books'].append(new_book)
+    data['books'].extend(new_book)
     return data['books']
 
 
