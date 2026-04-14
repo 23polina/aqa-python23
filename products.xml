@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<store>
+    <product>
+        <name>Apple</name>
+        <price>0.50</price>
+        <quantity>100</quantity>
+    </product>
+    <product>
+        <name>Bread</name>
+        <price>1.20</price>
+        <quantity>50</quantity>
+    </product>
+    <product>
+        <name>Milk</name>
+        <price>0.90</price>
+        <quantity>30</quantity>
+    </product>
+</store>
