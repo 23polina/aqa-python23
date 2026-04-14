@@ -13,7 +13,7 @@ tree = ET.parse('products.xml')
 root = tree.getroot()
 
 
-def count_price(file=tree, file_root=root):
+def count_price(file_root=root):
     total_price = 0
     for product in file_root.findall('product'):
         price = float(product.find('price').text)
