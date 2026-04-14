@@ -3,14 +3,12 @@
 Напишите программу, которая считывает данные из файла и
 позволяет пользователю добавлять новые книги в файл.
 """
-
-import yaml
 import logging
-from pprint import pprint
+import yaml
 
 logging.basicConfig(level=logging.INFO)
 
-with open('books.yaml') as f:
+with open('books.yaml', encoding="utf-8") as f:
     books_data = yaml.safe_load(f)
 
 

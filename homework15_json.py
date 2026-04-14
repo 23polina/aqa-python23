@@ -8,7 +8,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-with open('football_clubs.json', 'r') as file:
+with open('football_clubs.json', 'r', encoding="utf-8") as file:
     data = json.load(file)
 
 
@@ -17,5 +17,5 @@ def get_wins(club):
 
 
 best_club = max(data['clubs'], key=get_wins)
-logging.info("Your best club is %s %s wins, %s", best_club['name'], best_club['wins'], best_club['country'])
-
+logging.info("Your best club is %s %s wins, %s",
+             best_club['name'], best_club['wins'], best_club['country'])
