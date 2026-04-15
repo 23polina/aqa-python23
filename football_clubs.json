@@ -1,0 +1,19 @@
+{
+  "clubs": [
+    {
+      "name": "Real Madrid",
+      "country": "Spain",
+      "wins": 95
+    },
+    {
+      "name": "Manchester United",
+      "country": "England",
+      "wins": 68
+    },
+    {
+      "name": "Bayern Munich",
+      "country": "Germany",
+      "wins": 82
+    }
+  ]
+}
