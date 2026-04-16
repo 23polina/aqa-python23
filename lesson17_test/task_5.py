@@ -13,10 +13,7 @@ Task 5:
 
 
 def check_number(number):
-    if str(number) == str(number)[::-1]:
-        return True
-    else:
-        return False
+    return str(number) == str(number)[::-1]
 
 
-print(check_number(100))
+print(check_number(101))
