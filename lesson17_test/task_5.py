@@ -1,0 +1,22 @@
+"""
+Task 5:
+Напишите программу, которая принимает от пользователя число и проверяет,
+является ли она 2 палиндромом (читается одинаково слева направо и справа налево).
+Если число является палиндромом - возвращает True, иначе False.
+121 → True
+-121 => False
+10 => True
+0 = True
+1001 => True
+100 = False
+"""
+
+
+def check_number(number):
+    if str(number) == str(number)[::-1]:
+        return True
+    else:
+        return False
+
+
+print(check_number(100))
