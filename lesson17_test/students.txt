@@ -1,0 +1,8 @@
+Ivanov I.I;Group# 101;1, 10, 8
+Petrov I.I;Group# 101;7, 2, 8
+Sidorov I.I;Group# 102;7, 8, 8
+Alishevich I.I;Group# 102;6, 9, 10
+Total Student amount is: 4
+Group# 101: 2 students, Average mark is 6.0
+Group# 102: 2 students, Average mark is 8.0
+Your amount of lines - 7, words - 41 and letters 242
