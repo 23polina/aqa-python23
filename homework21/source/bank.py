@@ -15,7 +15,7 @@ class Bank:
                 "name": name,
                 "lastname": lastname
             }
-            logger.info(f"{self.clients[client_id]['name']} is registered")
+            logger.info("Client is registered")
             return self.clients[client_id]
         else:
             raise ValueError("The client has been already registered")
