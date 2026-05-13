@@ -25,7 +25,7 @@ class Book:
         if self.book_status == "Booked" and self.current_holder == person:
             self.book_status = "Free"
             self.current_holder = None
-            logger.info(f"The reservations has been canceled")
+            logger.info("The reservations has been canceled")
         elif self.book_status == "Booked" and self.current_holder != person:
             raise ValueError("Person doesn't match")
 
@@ -33,7 +33,7 @@ class Book:
         if self.book_status == "Booked" and self.current_holder == person:
             self.book_status = "Issued"
             self.current_holder = person
-            logger.info(f"The {self.book_name} has been issued")
+            logger.info("The has been issued")
         elif self.book_status == "Free":
             self.book_status = "Issued"
             self.current_holder = person
