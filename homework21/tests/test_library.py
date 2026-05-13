@@ -7,13 +7,13 @@ from source.library import Reader
 logger = logging.getLogger(__name__)
 
 
-@pytest.fixture
-def book():
+@pytest.fixture(name="book")
+def fixture_book():
     return Book("Never Lie", "Freida Mcfadden", 364)
 
 
-@pytest.fixture
-def reader():
+@pytest.fixture(name="reader")
+def fixture_reader():
     return Reader("Palina")
 
 

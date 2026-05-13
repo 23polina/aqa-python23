@@ -6,8 +6,8 @@ from source.bank import Bank
 logger = logging.getLogger(__name__)
 
 
-@pytest.fixture
-def bank():
+@pytest.fixture(name="bank")
+def fixture_bank():
     return Bank()
 
 
