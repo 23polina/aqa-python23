@@ -44,8 +44,7 @@ class Bank:
     def close_deposit(self, client_id):
         if client_id not in self.clients:
             raise ValueError("The client NOT found")
-        else:
-            client = self.clients[client_id]
+        client = self.clients[client_id]
         if "deposit" in client:
             del client["deposit"]
             logging.info("The deposit has been closed")
