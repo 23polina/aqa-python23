@@ -22,7 +22,7 @@ exclude = [
     "tests"
 ]
 
-[tool.pylint.MASTER]
+[tool.pylint.main]
 init-hook = "import sys; sys.path.append('.')"
 argument-naming-style = "snake_case"
 variable-naming-style = "snake_case"

@@ -23,14 +23,13 @@ class Bank:
     def open_deposit(self, client_id, amount, years, percentage):
         if client_id not in self.clients:
             raise ValueError("The client NOT found")
-        else:
-            self.clients[client_id]["deposit"] = {
-                "amount": amount,
-                "years": years,
-                "percentage": percentage
-            }
-            logger.info("The deposit opened")
-            return f"Deposit is opened with the amount: {amount}"
+        self.clients[client_id]["deposit"] = {
+            "amount": amount,
+            "years": years,
+            "percentage": percentage
+        }
+        logger.info("The deposit opened")
+        return f"Deposit is opened with the amount: {amount}"
 
     def calculate_rate(self, client_id):
         client = self.clients[client_id]
