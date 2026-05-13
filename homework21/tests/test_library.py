@@ -1,5 +1,5 @@
-import pytest
 import logging
+import pytest
 
 from source.library import Book
 from source.library import Reader

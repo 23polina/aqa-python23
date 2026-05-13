@@ -1,5 +1,5 @@
-import pytest
 import logging
+import pytest
 
 from source.bank import Bank
 

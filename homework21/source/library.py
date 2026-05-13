@@ -17,7 +17,7 @@ class Book:
         if self.book_status == "Free":
             self.book_status = "Booked"
             self.current_holder = person
-            logger.info("The is reserved")
+            logger.info("The book is reserved")
         else:
             raise ValueError("The book cannot be booked")
 
@@ -33,11 +33,11 @@ class Book:
         if self.book_status == "Booked" and self.current_holder == person:
             self.book_status = "Issued"
             self.current_holder = person
-            logger.info("The has been issued")
+            logger.info("The book has been issued")
         elif self.book_status == "Free":
             self.book_status = "Issued"
             self.current_holder = person
-            logger.info(f"The {self.book_name} has been issued")
+            logger.info("The book has been issued")
         elif self.book_status == "Booked" and self.current_holder != person:
             raise ValueError("Selected book has been reserved by another person")
 
@@ -64,13 +64,3 @@ class Reader:
 
     def return_book(self, book):
         book.return_book(self)
-
-
-
-book = Book(book_name="The Hobbit", author="Books by J.R.R. Tolkien", pages_amount=322)
-
-palina = Reader("Palina")
-petya = Reader("Petya")
-
-palina.reserve_book(book)
-
