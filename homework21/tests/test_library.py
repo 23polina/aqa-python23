@@ -1,8 +1,8 @@
 import logging
 import pytest
 
-from source.library import Book
-from source.library import Reader
+from homework21.source.library import Book
+from homework21.source.library import Reader
 
 logger = logging.getLogger(__name__)
 

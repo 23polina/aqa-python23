@@ -1,7 +1,7 @@
 import logging
 import pytest
 
-from source.bank import Bank
+from homework21.source.bank import Bank
 
 logger = logging.getLogger(__name__)
 
