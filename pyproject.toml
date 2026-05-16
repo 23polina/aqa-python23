@@ -11,7 +11,7 @@ exclude = [
     "tests"
 ]
 output-format = 'github'
-line-length = 120
+line-length = 130
 
 [tool.mypy]
 install_types = true
@@ -52,7 +52,7 @@ disable = [
 ]
 
 [tool.flake8]
-max-line-length = 120
+max-line-length = 130
 count = true
 statistics = true
 show-source = true
