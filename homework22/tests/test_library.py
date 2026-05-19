@@ -1,5 +1,6 @@
 import logging
 import random
+from unittest.mock import MagicMock
 import pytest
 from homework21.source.library import Book
 from homework21.source.library import Reader
@@ -110,31 +111,37 @@ def test_book_return(book, reader_stub):
 
 @pytest.mark.regression
 @pytest.mark.smoke
-def test_book_can_be_reserved_reader(reader, book):
+def test_book_can_be_reserved_reader_mocked(book):
+    reader_mock = MagicMock()
+    reader_mock.reader_name = "Palina"
     logger.info("Reserving the book from reader side")
-    reader.reserve_book(book)
+    book.reserve_book(reader_mock)
     assert book.book_status == "Booked"
     assert book.current_holder.reader_name == "Palina"
 
 
 @pytest.mark.regression
 @pytest.mark.smoke
-def test_cancel_reservation_reader(reader, book):
-    reader.reserve_book(book)
+def test_cancel_reservation_reader_mocked(book):
+    reader_mock = MagicMock()
+    reader_mock.reader_name = "Palina"
+    book.reserve_book(reader_mock)
     logger.info("Cancelling the book from reader side")
-    reader.cancel_reserve(book)
+    book.cancel_reserve(reader_mock)
     assert book.book_status == "Free"
     assert book.current_holder is None
 
 
 @pytest.mark.regression
 @pytest.mark.smoke
-def test_get_book_reader(reader, book):
-    reader.reserve_book(book)
+def test_get_book_reader_mocked(book):
+    reader_mock = MagicMock()
+    reader_mock.reader_name = "Palina"
+    book.reserve_book(reader_mock)
     logger.info("Getting the book from reader side")
-    reader.get_book(book)
+    book.get_book(reader_mock)
     assert book.book_status == "Issued"
-    assert book.current_holder == reader
+    assert book.current_holder == reader_mock
 
 
 @pytest.mark.regression
