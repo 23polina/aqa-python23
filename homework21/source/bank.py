@@ -6,8 +6,9 @@ logger = logging.getLogger(__name__)
 
 class Bank:
 
-    def __init__(self):
-        self.clients = {}
+    def __init__(self, storage):
+        self.storage = storage
+        self.clients = storage.clients
 
     def register_client(self, client_id, name, lastname):
         if client_id not in self.clients:
