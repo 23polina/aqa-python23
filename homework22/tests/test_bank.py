@@ -13,18 +13,17 @@ class FakeClientStorage:
 
 @pytest.fixture(name="bank")
 def fixture_bank():
-    storage = FakeClientStorage()
-    return Bank(storage)
+    return Bank()
 
 
 @pytest.fixture(name="bank_with_client")
 def fixture_bank_fake():
-    storage = FakeClientStorage()
-    storage.clients["00001"] = {
+    bank = Bank()
+    bank.clients["00001"] = {
         "name": "Palina",
         "lastname": "Novik"
     }
-    return Bank(storage)
+    return bank
 
 
 @pytest.fixture(name="client_id")

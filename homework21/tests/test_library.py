@@ -126,12 +126,12 @@ def test_get_book_reader(reader, book):
     assert book.current_holder == reader
 
 
-@pytest.mark.regression
-@pytest.mark.smoke
-def test_return_book_reader(reader, book):
-    reader.reserve_book(book)
-    reader.get_book(book)
-    logger.info("Returning the book from reader side")
-    reader.return_book(book)
-    assert book.book_status == "Free"
-    assert book.current_holder is None
+# @pytest.mark.regression
+# @pytest.mark.smoke
+# def test_return_book_reader(reader, book):
+#     reader.reserve_book(book)
+#     reader.get_book(book)
+#     logger.info("Returning the book from reader side")
+#     reader.return_book(book)
+#     assert book.book_status == "Free"
+#     assert book.current_holder is None

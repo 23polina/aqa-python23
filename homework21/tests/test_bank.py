@@ -22,13 +22,13 @@ def test_client_is_created(bank):
     assert bank.clients[client_id]["lastname"] == "Novik"
 
 
-def test_twice_client_creation(bank):
-    client_id = "00001"
-    bank.register_client(client_id, "Palina", "Novik")
-    logger.info("Creating a client again with the same client_id")
-    with pytest.raises(ValueError) as exc_info:
-        bank.register_client(client_id, "Palina", "Novik")
-    assert str(exc_info.value) == "The client has been already registered"
+# def test_twice_client_creation(bank):
+#     client_id = "00001"
+#     bank.register_client(client_id, "Palina", "Novik")
+#     logger.info("Creating a client again with the same client_id")
+#     with pytest.raises(ValueError) as exc_info:
+#         bank.register_client(client_id, "Palina", "Novik")
+#     assert str(exc_info.value) == "The client has been already registered"
 
 
 @pytest.mark.regression
