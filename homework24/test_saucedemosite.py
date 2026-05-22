@@ -1,4 +1,4 @@
-from playwright.sync_api import expect
+from playwright.sync_api import sync_playwright, expect
 
 
 def test_user_can_login_with_correct_cred(page):
