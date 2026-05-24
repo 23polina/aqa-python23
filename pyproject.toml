@@ -29,6 +29,7 @@ variable-naming-style = "snake_case"
 function-naming-style = "snake_case"
 method-naming-style = "snake_case"
 module-naming-style = "snake_case"
+max-attributes = 10
 ignore-paths = [
     'venv/*',
     'tests/*'
