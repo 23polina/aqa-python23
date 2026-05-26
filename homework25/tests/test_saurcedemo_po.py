@@ -1,30 +1,6 @@
 import pytest
 from playwright.sync_api import expect
-from homework25.pages.login_page import Login
-from homework25.pages.swaglabs_page import SwagLabs
-from homework25.pages.bucket_page import Bucket
-from homework25.pages.checkout_page import Checkout
 from homework25.test_data.test_data import CorrectUser, InCorrectUser, ErrorMessage
-
-
-@pytest.fixture(name="login")
-def fixture_login(page):
-    return Login(page)
-
-
-@pytest.fixture(name="swaglabs")
-def fixture_swaglabs(page):
-    return SwagLabs(page)
-
-
-@pytest.fixture(name="bucket")
-def fixture_bucket(page):
-    return Bucket(page)
-
-
-@pytest.fixture(name="checkout")
-def fixture_checkout(page):
-    return Checkout(page)
 
 
 def test_user_can_logic_successfully(login, swaglabs):
