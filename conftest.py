@@ -6,8 +6,8 @@ from homework25.pages.bucket_page import Bucket
 from homework25.pages.checkout_page import Checkout
 
 
-@pytest.fixture
-def page():
+@pytest.fixture(name="page")
+def fixture_page():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
         context = browser.new_context()
