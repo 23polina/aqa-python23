@@ -1,4 +1,3 @@
-import pytest
 from playwright.sync_api import expect
 from homework25.test_data.test_data import CorrectUser, InCorrectUser, ErrorMessage
 
