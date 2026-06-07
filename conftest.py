@@ -54,7 +54,7 @@ def fixture_auth(api_client):
 
 
 @pytest.fixture(name="request_body")
-def fixture_request_body(api_client):
+def fixture_request_body():
     body = {
         "firstname": "Test",
         "lastname": "Brown",
