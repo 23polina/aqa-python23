@@ -1,16 +1,5 @@
-def test_create_booking(api_client):
-    body = {
-        "firstname": "Test",
-        "lastname": "Brown",
-        "totalprice": 11204,
-        "depositpaid": True,
-        "bookingdates": {
-            "checkin": "2026-08-01",
-            "checkout": "2026-08-10"
-        },
-        "additionalneeds": "Breakfast"
-    }
-    post_response = api_client.post_request("/booking", body=body)
+def test_create_booking(api_client, request_body):
+    post_response = api_client.post_request("/booking", body=request_body)
     post_response_json = post_response.json()
 
     assert post_response.status_code == 200
@@ -36,19 +25,8 @@ def test_get_booking_with_incorrect_id(api_client):
     assert get_response.status_code == 404
 
 
-def test_update_booking_successfully(api_client, auth):
-    body_post = {
-        "firstname": "Update",
-        "lastname": "Brown",
-        "totalprice": 11204,
-        "depositpaid": True,
-        "bookingdates": {
-            "checkin": "2026-08-01",
-            "checkout": "2026-08-10"
-        },
-        "additionalneeds": "Breakfast"
-    }
-    post_response = api_client.post_request("/booking", body=body_post)
+def test_update_booking_successfully(api_client, auth, request_body):
+    post_response = api_client.post_request("/booking", body=request_body)
     booking_id = post_response.json()["bookingid"]
 
     put_body = {
@@ -70,27 +48,21 @@ def test_update_booking_successfully(api_client, auth):
     assert get_response.json() == put_response.json()
 
 
-def test_update_booking_without_passing_token(api_client):
-    body = {
-        "firstname": "James",
-        "lastname": "Brown",
-        "totalprice": 1111,
-        "depositpaid": True,
-        "bookingdates": {
-            "checkin": "2026-08-01",
-            "checkout": "2026-08-10"
-        },
-        "additionalneeds": "No Breakfast"
-    }
-    put_response = api_client.put_request("/booking/1332", body=body)
+def test_update_booking_without_passing_token(api_client, request_body):
+    put_response = api_client.put_request("/booking/1332", body=request_body)
     assert put_response.status_code == 403
 
 
-def test_partial_booking_update(api_client, auth):
-    get_response = api_client.get_request("/booking/4097")
+def test_partial_booking_update(api_client, auth, request_body):
+    post_response = api_client.post_request("/booking", body=request_body)
+
+    booking_id = post_response.json()["bookingid"]
+
+    get_response = api_client.get_request(f"/booking/{booking_id}")
     assert get_response.json()["firstname"] != "Mason"
     assert get_response.json()["bookingdates"]["checkin"] != "2026-08-02"
     assert get_response.json()["bookingdates"]["checkout"] != "2026-08-11"
+
     body = {
         "firstname": "Mason",
         "bookingdates": {
@@ -98,19 +70,22 @@ def test_partial_booking_update(api_client, auth):
             "checkout": "2026-08-11"
         }
     }
-    patch_response = api_client.patch_request("/booking/4097", body=body, token=auth)
+
+    patch_response = api_client.patch_request(f"/booking/{booking_id}", body=body, token=auth)
     assert patch_response.status_code == 200
     assert patch_response.json()["firstname"] == "Mason"
     assert patch_response.json()["bookingdates"]["checkin"] == "2026-08-02"
     assert patch_response.json()["bookingdates"]["checkout"] == "2026-08-11"
 
-    get_response = api_client.get_request("/booking/4097")
+    get_response = api_client.get_request(f"/booking/{booking_id}")
     assert get_response.json()["firstname"] == "Mason"
     assert get_response.json()["bookingdates"]["checkin"] == "2026-08-02"
     assert get_response.json()["bookingdates"]["checkout"] == "2026-08-11"
 
 
-def test_partial_booking_update_unsuccessful(api_client):
+def test_partial_booking_update_unsuccessful(api_client, request_body):
+    post_response = api_client.post_request("/booking", body=request_body)
+    booking_id = post_response.json()["bookingid"]
     body = {
         "firstname": "Mason",
         "bookingdates": {
@@ -118,25 +93,14 @@ def test_partial_booking_update_unsuccessful(api_client):
             "checkout": "2026-08-11"
         }
     }
-    patch_response = api_client.patch_request("/booking/4097", body=body)
+    patch_response = api_client.patch_request(f"/booking/{booking_id}", body=body)
     assert patch_response.status_code == 403
 
 
-def test_delete_booking(api_client, auth):
-    body = {
-        "firstname": "Delete",
-        "lastname": "Brown",
-        "totalprice": 11204,
-        "depositpaid": True,
-        "bookingdates": {
-            "checkin": "2026-08-01",
-            "checkout": "2026-08-10"
-        },
-        "additionalneeds": "Breakfast"
-    }
-    post_response = api_client.post_request("/booking", body=body)
+def test_delete_booking(api_client, auth, request_body):
+    post_response = api_client.post_request("/booking", body=request_body)
     assert post_response.status_code == 200
-    assert post_response.json()["booking"]["firstname"] == "Delete"
+    assert post_response.json()["booking"]["firstname"] == "Test"
 
     booking_id = post_response.json()["bookingid"]
 
@@ -150,19 +114,8 @@ def test_delete_booking(api_client, auth):
     assert get_response.status_code == 404
 
 
-def test_delete_booking_without_token(api_client):
-    body = {
-        "firstname": "Delete",
-        "lastname": "Brown",
-        "totalprice": 11204,
-        "depositpaid": True,
-        "bookingdates": {
-            "checkin": "2026-08-01",
-            "checkout": "2026-08-10"
-        },
-        "additionalneeds": "Breakfast"
-    }
-    post_response = api_client.post_request("/booking", body=body)
+def test_delete_booking_without_token(api_client, request_body):
+    post_response = api_client.post_request("/booking", body=request_body)
     booking_id = post_response.json()["bookingid"]
 
     delete_response = api_client.delete_request(f"/booking/{booking_id}")

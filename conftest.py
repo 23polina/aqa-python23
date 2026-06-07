@@ -51,3 +51,19 @@ def fixture_auth(api_client):
     }
     response = api_client.post_request("/auth", body=body)
     return response.json()["token"]
+
+
+@pytest.fixture(name="request_body")
+def fixture_request_body(api_client):
+    body = {
+        "firstname": "Test",
+        "lastname": "Brown",
+        "totalprice": 11204,
+        "depositpaid": True,
+        "bookingdates": {
+            "checkin": "2026-08-01",
+            "checkout": "2026-08-10"
+        },
+        "additionalneeds": "Breakfast"
+    }
+    return body
