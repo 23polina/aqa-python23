@@ -15,20 +15,20 @@ class ApiClient:
     def post_request(self, endpoint: str, body: dict):
         return requests.post(f"{self.url}{endpoint}", json=body, headers=self.headers, timeout=5)
 
-    def put_request(self, endpoint: str, body: dict, token: str = None):
+    def put_request(self, endpoint: str, body: dict, token=None):
         headers_cookies = self.headers.copy()
         if token:
             headers_cookies["Cookie"] = f"token={token}"
         return requests.put(f"{self.url}{endpoint}", json=body, headers=headers_cookies, timeout=5)
 
-    def patch_request(self, endpoint: str, body: dict, token: str = None):
+    def patch_request(self, endpoint: str, body: dict, token=None):
         headers_cookies = self.headers.copy()
         if token:
             headers_cookies["Cookie"] = f"token={token}"
         return requests.patch(f"{self.url}{endpoint}",
                               json=body, headers=headers_cookies, timeout=5)
 
-    def delete_request(self, endpoint: str, token: str = None):
+    def delete_request(self, endpoint: str, token=None):
         headers_cookies = self.headers.copy()
         if token:
             headers_cookies["Cookie"] = f"token={token}"
